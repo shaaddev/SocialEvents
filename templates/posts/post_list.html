@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/post_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Social Events</h1>
+<div>
+    {% for post in post_list %}
+    <div class="all_posts">
+        <img class="image" src="{{ post.flyer.url }}">
+        <h3 class="post_user">@{{ post.user.username|lower }}</h3>
+        <h3 class="title">{{ post.title }} - {{ post.event_date }}</h3>
+        <h4 class="location">{{ post.location }}</h4>
+        <p class="caption">{{ post.caption }}</p>
+        <p class="category">#{{ post.category }}</p>
+        <p class="date-bottom">{{ post.created_at }}</p>
+    </div>
+    {% endfor %}
+    {% if user.is_authenticated %}
+        <a class="create-button" href="{% url 'posts:create' %}">Create Post ✏️</a>
+    {% endif %}
+</div>
+{% endblock %}

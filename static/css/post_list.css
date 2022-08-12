@@ -1,0 +1,173 @@
+h1 {
+    position: relative;
+    font-size: 30px;
+    margin-left: 2%; 
+    margin-top: 5%;
+    color: rgba(255, 255, 255, 95%);
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+}
+
+.all_posts {
+    position: relative;
+    width: 499px;
+    height: 800px;
+    margin: 0 auto;
+    margin-bottom: 35px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 2px solid rgba(0, 0, 0, 15%);
+}
+
+.no-results {
+    position: absolute;
+    margin: 0 auto;
+    text-align: center;
+    padding: 100px 0;
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.image {
+    position: relative;
+    top: 25px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 10%;
+    width: 100%;
+    height: 50%;
+    object-fit: scale-down;
+}
+
+.more-icon {
+    position: absolute;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    object-fit: fill;
+    bottom: 40%;
+    right: 2%;
+}
+
+.close-icon {
+    position: absolute;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    object-fit: fill;
+    right: 2%;
+    bottom: 35%;
+}
+
+.post_user {
+    position: relative;
+    left: 2%;
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 15px;
+    width: 50%;
+}
+
+.title {
+    position: relative;
+    margin: 0;
+    left: 2%;
+    font-size: 20px;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.location {
+    position: relative;
+    margin: 5px 0;
+    left: 2%;
+    font-size: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.category {
+    position: relative;
+    left: 2%;
+    font-size: 12px;
+    text-align: center;
+}
+
+.caption {
+    position: relative;
+    margin: 0;
+    left: 2%;
+    font-size: 13px;
+    line-height: 30px;
+    width: 95%;
+    text-align: justify;
+}
+
+
+.date-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+    font-size: 12px;
+}
+
+.create-button {
+    position: fixed;
+    font-size: 15px;
+    bottom: 10%;
+    right: 10%;
+    padding: 7px 30px;
+    background-color: whitesmoke;
+    color: black;
+    z-index: 12;
+    border-radius: 30px;
+    transition: all 0.2s ease-in;
+    z-index: 0;
+}
+
+
+.create-button:hover {
+    border-radius: 1px;
+}
+
+
+@media screen and (max-width: 900px){
+
+    h1 {
+        position: relative;
+        font-size: 30px;
+        margin-left: 2%; 
+        margin-top: 20%;
+        color: black;
+    }
+
+    .all_posts {
+        width: auto;
+        margin: 2%;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .location {
+        font-size: 10px;
+    }
+
+    .create-button {
+        bottom: 2%;
+        right: 5%;
+        background-color: black;
+        color: white;
+    }
+}

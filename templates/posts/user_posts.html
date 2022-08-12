@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/post_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>@{{user.username}}'s Posts</h1>
+<div>
+    {% for post in post_list %}
+        {% if user == post.user %}
+        <div class="all_posts">
+            <img class="image" src="{{ post.flyer.url }}">
+            <h3 class="post_user">@{{ post.user.username|lower }}</h3>
+            <h3 class="title">{{ post.title }} - {{ post.event_date }}</h3>
+            <h4 class="location">{{ post.location }}</h4>
+            <p class="caption">{{ post.caption }}</p>
+            <p class="category">#{{ post.category }}</p>
+            <p class="date-bottom">{{ post.created_at }}</p>
+            <a class="icon-update" href="{% url 'posts:update' pk=post.id %}"><img class="more-icon" src="{% static 'images/more.png' %}" alt="icon"></a>   
+            <a class="icon-delete" href="{% url 'posts:delete' pk=post.id %}"><img class="close-icon" src="{% static 'images/close.png' %}" alt="icon"></a>   
+        </div>
+        {% endif %}
+    {% endfor %}
+    {% if user.is_authenticated %}
+        <a class="create-button" href="{% url 'posts:create' %}">Create Post ✏️</a>
+    {% endif %}
+</div>
+{% endblock %}

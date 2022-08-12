@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Social Events</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'images/favi.png' %}">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+        {% block head %}
+        {% endblock %}
+    </head>
+
+    <body>
+
+        <div class="navigation" id="header">
+            {% if user.is_authenticated %}
+                <a id="username">Welcome, @{{ user.username }}</a>
+            {% endif %}
+            <ul>
+                {% if user.is_authenticated%}
+                    <li><a href="{% url 'posts:category' %}">Categories</a></li>                
+                    <li><a href="{% url 'posts:home' %}">Home</a></li>
+                    <li><a href="{% url 'posts:user_post' username=user %}">Your Posts</a></li>
+                    <li><a href="{% url 'accounts:logout' %}">Log Out</a></li>
+                    <li><a href="{% url 'howto' %}">HowTo</a></li>
+                {% else %}
+                    <li><a href="{% url 'posts:category' %}">Categories</a></li>
+                    <li><a href="{% url 'posts:home' %}">Home</a></li>
+                    <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                    <li><a href="{% url 'howto' %}">HowTo</a></li>
+                {% endif %}
+            </ul>
+
+            <div id="sideNav" class="side-nav">
+                {% if user.is_authenticated %}
+                    <span id="closebtn" onclick="closeNav()">&times;</span>
+                    <a href="{% url 'posts:category' %}">Categories</a>               
+                    <a href="{% url 'posts:home' %}">Home</a>
+                    <a href="{% url 'howto' %}">HowTo</a>
+                    <a href="{% url 'posts:user_post' username=user %}">Your Posts</a>
+                    <a href="{% url 'accounts:logout' %}">Log Out</a>
+                {% else %}
+                    <span id="closebtn" onclick="closeNav()">&times;</span>
+                    <a href="{% url 'posts:category' %}">Categories</a>            
+                    <a href="{% url 'posts:home' %}">Home</a>
+                    <a href="{% url 'accounts:login' %}">Login</a>
+                    <a href="{% url 'howto' %}">HowTo</a>
+                {% endif %}
+            </div>
+            <span class="openbtn" onclick="openNav()">&#9776;</span>
+        </div>
+        
+        <video class="background-video" autoplay muted loop>
+            <source src="{% static 'videos/events.mp4' %}" type="video/mp4">
+        </video>
+
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+        <script src="{% static 'js/sideNav.js' %}"></script>
+    </body>
+
+    <footer id="bottom">
+        <ul>
+            <li><img src="{% static 'images/logos/twitter.png' %}" alt="" id="logo"></li>
+            <li><img src="{% static 'images/logos/instagram.png' %}" alt="" id="logo"></li>
+            <li><img src="{% static 'images/logos/linkedin.png' %}" alt="" id="logo"></li>
+            <li><img src="{% static 'images/logos/githb.png' %}" alt="" id="logo"></li>
+            <li><img src="{% static 'images/logos/pin.png' %}" alt="" id="logo"></li>
+            <li><img src="{% static 'images/logos/facebook.png' %}" alt="" id="logo"></li>
+        </ul>
+        <p>&copy; 2022 Social Experiment <br>Made by <b>R.L.H</b> </p>
+    </footer>
+</html>

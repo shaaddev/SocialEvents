@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/side.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h2>Thanks for visiting. <br> Come Back Soon!</h2> <br>
+    <a class="thanks-button" href="{% url 'posts:home' %}">Home 🏠</a>
+{% endblock %}
