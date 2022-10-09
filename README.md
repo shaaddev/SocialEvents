@@ -1,3 +1,10 @@
+<h1 style="text-align: center;">Social Events</h1>
+<h3 style="text-align: center">Preview<h3/>
+
+<img src="static/images/preview.png" alt="preview"/>
+
+#
+
 # 🛠 Setup
 
 <h3>Install virtual environment</h3>
