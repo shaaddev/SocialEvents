@@ -83,24 +83,24 @@ WSGI_APPLICATION = 'social.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# FOR THE FUTURE
 DATABASES = {
-    'default':{
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['name'],
-        'USER': os.environ['user'],
-        'PASSWORD': os.environ['password'],
-        'HOST': os.environ['host'],
-        'PORT': os.environ['port'],
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# FOR THE FUTURE
+# DATABASES = {
+#     'default':{
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ['name'],
+#         'USER': os.environ['user'],
+#         'PASSWORD': os.environ['password'],
+#         'HOST': os.environ['host'],
+#         'PORT': os.environ['port'],
+#     }
+# }
 
 
 # Password validation
