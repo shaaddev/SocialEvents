@@ -25,12 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-u+frh63ss%j9xfwn*33b6+_8988=u2jgstb!p_n+^nsnq83%f#'
+SECRET_KEY = os.environ['secret_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -83,24 +83,24 @@ WSGI_APPLICATION = 'social.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# FOR THE FUTURE
 DATABASES = {
-    'default':{
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['name'],
-        'USER': os.environ['user'],
-        'PASSWORD': os.environ['password'],
-        'HOST': os.environ['host'],
-        'PORT': os.environ['port'],
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# FOR THE FUTURE
+# DATABASES = {
+#     'default':{
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ['name'],
+#         'USER': os.environ['user'],
+#         'PASSWORD': os.environ['password'],
+#         'HOST': os.environ['host'],
+#         'PORT': os.environ['port'],
+#     }
+# }
 
 
 # Password validation
@@ -147,7 +147,8 @@ USE_TZ = True
 
 # STATIC
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [(os.path.join(BASE_DIR, 'static')),]
+# STATIC_ROOT = os.environ.get('DJANGO_STATIC_ROOT', '/app/static/')
+STATIC_ROOT = os.environ.get('DJANGO_STATIC_ROOT', '/app/static/')
 
 # MEDIA
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
