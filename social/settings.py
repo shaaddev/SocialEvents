@@ -148,7 +148,7 @@ USE_TZ = True
 # STATIC
 STATIC_URL = 'static/'
 # STATIC_ROOT = os.environ.get('DJANGO_STATIC_ROOT', '/app/static/')
-STATIC_ROOT = os.environ.get('DJANGO_STATIC_ROOT', '/app/static/')
+STATICFILES_DIRS = [(os.path.join(BASE_DIR, 'static'))]
 
 # MEDIA
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
